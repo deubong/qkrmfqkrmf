@@ -33,9 +33,9 @@ public class BBSController {
 	public String search() {
 		return "search";
 	}
-	@RequestMapping("/ajax.bbs")
+	@RequestMapping("/chart.bbs")
 	public String ajax() {
-		return "ajax";
+		return "chart";
 	}
 	
 	@RequestMapping("/mlist.bbs")

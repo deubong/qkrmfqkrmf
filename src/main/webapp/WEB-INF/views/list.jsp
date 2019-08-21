@@ -31,11 +31,11 @@ h2 {
 <body>
 	<!-- !!!!!!!!!!다른 jsp 화면 안에 집어 넣기!!!!!!!!! 
 	<c:if test="${id!=null}">
-		<%@include file="loginOk.jsp"%>
+<%-- 		<%@include file="loginOk.jsp"%> --%>
 	</c:if>
  
 	<c:if test="${id==null}">
-		<%@include file="login.jsp"%>
+<%-- 		<%@include file="login.jsp"%> --%>
 	</c:if>
 	-->
 

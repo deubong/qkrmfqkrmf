@@ -7,9 +7,7 @@
 <html>
 
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>결과 페이지</title>
 
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -22,9 +20,7 @@
 
 <p><b>그래프</b></p>
 <hr>
-
 </head>
-
 <body>
 	<div id="combo"> 
 		<select id="gu" name="gu"> 
@@ -36,7 +32,6 @@
 		<input id = search type="button" value="확인" />
 	</div>
  
-	<div></div>
 	<div style="width: 500px">
 		<div id="chart"></div>
 	</div>
@@ -47,18 +42,12 @@
 	$(document).ready(function() {
 		$("#search").click(function() {
 			$.ajax({
-			//  url : "http://127.0.0.1:8090/bbs/json/mlist.bbs",
-				url : "http://127.0.0.1:8090/web/json/chart1",
+				url : "http://127.0.0.1:8090/bbs/json/chart.bbs",
 				type : "get", //get post둘중하나
 				data : {},
 				success : function(data) {
 					var obj = data;
 					var memberList = obj.memberList;
-
-					// var gu = memberList[0].GU;
-					// var dong = memberList[0].DONG;
-					// var result1 = memberList[0].RESULT1;
-
 					var comboGu = document.getElementById("gu");
 					var comboDong = document.getElementById("dong");
 					var col = "["; 
@@ -120,7 +109,7 @@
 	// <구·군> 콤보박스 띄우기
 	$(document).ready(
 			function() {
-				$.getJSON("http://127.0.0.1:8090/web/json/chart1", function(data) {
+				$.getJSON("http://127.0.0.1:8090/bbs/json/chart.bbs", function(data) {
 					var obj = data;
 					var memberList = obj.memberList;
 					var gu;
@@ -143,7 +132,7 @@
 	$(document).ready(function() {
 		 $('#gu').change(function(){
 			$.ajax({
-				url : "http://127.0.0.1:8090/web/json/chart1",
+				url : "http://127.0.0.1:8090/bbs/json/chart.bbs",
 				type : "get",
 				data : {},
 				success : function(data) {
@@ -168,5 +157,5 @@
 
 </script>
 </html>
-
+	
 

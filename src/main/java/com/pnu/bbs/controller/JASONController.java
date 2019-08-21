@@ -1,6 +1,5 @@
 package com.pnu.bbs.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pnu.bbs.dao.BBSDao;
@@ -23,22 +21,21 @@ public class JASONController {
 	// 사용할 DAO를 객체를 만듬
 	@Autowired
 	private BBSDao mDAO;
+	
+	@RequestMapping(value = "/result", method = RequestMethod.GET, produces = "application/json")
+	public Map<String, List<Map<String, Object>>> chart1(HttpServletResponse response) {
 
-	// http://127.0.0.1:8090/web/json/mlist?key=123
-	@RequestMapping(value = "/mlist", method = RequestMethod.GET)
-	public List<Map<String, Object>> json(@RequestParam(value = "key", required = false, defaultValue = "0") int key) {
-		if (key == 123) {
-			// DB에서 오는 값을 JSON문서로 만듬
-			List<Map<String, Object>> list = mDAO.selectMemberList();
-			return list;
-		} else {
-			// 에러 처리에 대한 임의의 값으로 만듬
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("ret", "404 page");
+		// 크로스 도메인 : 서버와 클라이언트가 물리적으로 분리되어 있을경우 데이터를 받지 못함..
+		response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setCharacterEncoding("UTF-8");
 
-			List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-			list.add(map);
-			return list;
-		}
+		List<Map<String, Object>> list = mDAO.selectMemberList();
+		Map<String,List<Map<String, Object>>> list2 = new HashMap<String, List<Map<String,Object>>>();
+		list2.put("memberList", list);
+		return list2; 
 	}
+
 }  

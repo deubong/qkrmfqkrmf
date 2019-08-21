@@ -10,6 +10,7 @@ public class BBSDto {
 	
 	public BBSDto() {
 	}
+	
 	public BBSDto(String gu, String dong, String result1) {
 		super();
 		this.gu = gu;
