@@ -19,16 +19,29 @@ import com.pnu.bbs.service.BBSService;
 
 @Controller
 public class BBSController {
-	@Autowired // 스프링이 지원하는 애노테이션, 타입으로 빈을 찾음
+	@Autowired 
 	private BBSService bbsService;
 	private BBSDao mDAO;
 
 	@RequestMapping("/list.bbs")
-	public String list(Model model, BBSDto article, @RequestParam(value = "dong", required = false, defaultValue ="장전2동") String dong) {
+	public String list(Model model, BBSDto article, @RequestParam(value = "dong", required = false, defaultValue ="구서동") String dong) {
 		model.addAttribute("articleList", bbsService.list(dong));
 		return "list";
 	}
+	@RequestMapping("/index.bbs")
+	public String index() {
+		return "index";
+	}
+
+	@RequestMapping("/yes.bbs")
+	public String yes() {
+		return "yes";
+	}
 	
+	@RequestMapping("/template.bbs")
+	public String template() {
+		return "template";
+	}
 	@RequestMapping("/search.bbs")
 	public String search() {
 		return "search";
@@ -43,6 +56,6 @@ public class BBSController {
 		return "mlist";
 	}
 
-	// -> service로
+	// -> service濡�
 
 }
