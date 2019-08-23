@@ -161,7 +161,7 @@ function drawMarker(markers) {
     }
 }
 
-// Drawing Manager에서 가져온 데이터 중 선을 아래 지도에 표시하는 함수입니다
+// Drawing Manager에서 가져온 데이터 중 선을 아래 지도에 표시하는 함수입니다---------------
 function drawPolyline(lines) {
     var len = lines.length, i = 0;
 
