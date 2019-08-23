@@ -7,5 +7,7 @@ import com.pnu.bbs.dto.BBSDto;
 
 public interface BBSDao {
 	public List<BBSDto> list(String dong);
-	public List<Map<String, Object>> selectMemberList();
+	public List<Map<String, Object>> analysis_result();
+	public List<Map<String, Object>> analysis_store_peup();
+	public List<Map<String, Object>> store();
 }

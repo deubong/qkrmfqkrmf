@@ -7,9 +7,22 @@
 <mapper namespace="com.pnu.bbs.dao.BBSDao">
 
 	<!-- 메인에서 게시판 목록 -->
-	<select id="selectMemberList" resultType="map">
-		SELECT gu, dong, result1
-		FROM analysis
+	<select id="analysis_result" resultType="map">
+		SELECT *
+		FROM analysis_result 
+		ORDER BY GU,DONG
+	</select>
+	
+	<select id="analysis_store_peup" resultType="map">
+		SELECT *
+		FROM analysis_store_peup
+		ORDER BY DONG
+	</select>
+
+	<select id="store" resultType="map">
+		SELECT *
+		FROM store
+		ORDER BY DONG
 	</select>
 
 	<select id="selectDong" resultType="article"

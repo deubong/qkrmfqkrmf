@@ -36,7 +36,7 @@ public class BBSServlet extends HttpServlet {
 		System.out.println("구 : "+gu+"  동 :  "+dong);
 		request.setAttribute("dong", dong);
 		request.setAttribute("result1", result);
-		RequestDispatcher dispatch = request.getRequestDispatcher("/list.bbs");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/ u.bbs");
 		dispatch.forward(request, response);
 	} 
 	

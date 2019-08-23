@@ -1,15 +1,12 @@
 package com.pnu.bbs.dto;
 
-import java.sql.Timestamp;
-
 public class BBSDto {
 
 	private String gu;
 	private String dong;
 	private String result1;
 	
-	public BBSDto() {
-	}
+	public BBSDto() {}
 	
 	public BBSDto(String gu, String dong, String result1) {
 		super();
@@ -17,7 +14,6 @@ public class BBSDto {
 		this.dong = dong;
 		this.result1 = result1;
 	}
-
 	public String getGu() {
 		return gu;
 	}
@@ -36,8 +32,4 @@ public class BBSDto {
 	public void setResult1(String result1) {
 		this.result1 = result1;
 	}
-	
-	
-	
-
 }

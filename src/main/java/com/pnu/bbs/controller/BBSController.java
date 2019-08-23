@@ -34,13 +34,31 @@ public class BBSController {
 		return "search";
 	}
 	@RequestMapping("/chart.bbs")
-	public String ajax() {
+	public String chart() {
 		return "chart";
+	}
+	@RequestMapping("/pieChart.bbs")
+	public String pieChart() {
+		return "pieChart";
+	}
+	
+	@RequestMapping("/dieChart.bbs")
+	public String dieChart() {
+		return "dieChart";
 	}
 	
 	@RequestMapping("/mlist.bbs")
 	public String mlist() {
 		return "mlist";
+	}
+	
+	@RequestMapping("/template.bbs")
+	public String template() {
+		return "template";
+	}
+	@RequestMapping("/drawingMaps.bbs")
+	public String drawingMaps() {
+		return "drawingMaps";
 	}
 
 	// -> service로

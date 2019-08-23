@@ -35,8 +35,6 @@
 	<div style="width: 500px">
 		<div id="chart"></div>
 	</div>
-	
-	<%@include file="maps.jsp"%> 
 </body>
 
 <script>
@@ -92,14 +90,8 @@
 							columns :
 									eval(col) 
 							 	, 
-							type : 'bar'
+							type : 'pie'
 						},
-						bar : {
-							width : {
-								ratio : 0.5
-							// this makes bar width 50% of length between ticks
-							}
-						}
 					});
 				}
 			});

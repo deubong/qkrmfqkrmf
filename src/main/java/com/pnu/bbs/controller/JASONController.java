@@ -32,10 +32,34 @@ public class JASONController {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setCharacterEncoding("UTF-8");
 
-		List<Map<String, Object>> list = mDAO.selectMemberList();
-		Map<String,List<Map<String, Object>>> list2 = new HashMap<String, List<Map<String,Object>>>();
-		list2.put("memberList", list);
-		return list2; 
+		List<Map<String, Object>> list1 = mDAO.analysis_result();
+		List<Map<String, Object>> list2 = mDAO.analysis_store_peup();
+		
+		
+		Map<String,List<Map<String, Object>>> jsonList = new HashMap<String, List<Map<String,Object>>>();
+		jsonList.put("analysis_result", list1);
+		jsonList.put("analysis_store_peup", list2);
+		
+
+		return jsonList; 
+	}
+	
+	@RequestMapping(value = "/store", method = RequestMethod.GET, produces = "application/json")
+	public Map<String, List<Map<String, Object>>> store(HttpServletResponse response) {
+
+		// 크로스 도메인 : 서버와 클라이언트가 물리적으로 분리되어 있을경우 데이터를 받지 못함..
+		response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setCharacterEncoding("UTF-8");
+
+		List<Map<String, Object>> list= mDAO.store();
+		
+		Map<String,List<Map<String, Object>>> jsonList = new HashMap<String, List<Map<String,Object>>>();
+		jsonList.put("store", list);
+
+		return jsonList; 
 	}
 
 }  
