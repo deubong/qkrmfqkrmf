@@ -49,4 +49,13 @@
     <servlet-name>BBSServlet</servlet-name>
     <url-pattern>/BBSServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AnalysisServlet</servlet-name>
+    <servlet-class>com.pnu.bbs.dao.AnalysisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnalysisServlet</servlet-name>
+    <url-pattern>/analysis</url-pattern>
+  </servlet-mapping>
 </web-app>

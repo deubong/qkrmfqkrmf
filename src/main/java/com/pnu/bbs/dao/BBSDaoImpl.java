@@ -26,8 +26,14 @@ public class BBSDaoImpl implements BBSDao {
 	public List<Map<String, Object>> analysis_result(){
 		return sqlSession.selectList(nameSpace+".analysis_result");
 	}
-	public List<Map<String, Object>> analysis_store_peup(){
-		return sqlSession.selectList(nameSpace+".analysis_store_peup");
+	public List<Map<String, Object>> analysis_density(){
+		return sqlSession.selectList(nameSpace+".analysis_density");
+	}
+	public List<Map<String, Object>> analysis_result_point(){
+		return sqlSession.selectList(nameSpace+".analysis_result_point");
+	}
+	public List<Map<String, Object>> analysis_store_pl(){
+		return sqlSession.selectList(nameSpace+".analysis_store_pl");
 	}
 	public List<Map<String, Object>> store(){
 		return sqlSession.selectList(nameSpace+".store");

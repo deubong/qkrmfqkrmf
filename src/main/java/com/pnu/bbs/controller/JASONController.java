@@ -33,12 +33,16 @@ public class JASONController {
 		response.setCharacterEncoding("UTF-8");
 
 		List<Map<String, Object>> list1 = mDAO.analysis_result();
-		List<Map<String, Object>> list2 = mDAO.analysis_store_peup();
+		List<Map<String, Object>> list4 = mDAO.analysis_density();
+		List<Map<String, Object>> list2 = mDAO.analysis_store_pl();
+		List<Map<String, Object>> list3 = mDAO.analysis_result_point();
 		
 		
 		Map<String,List<Map<String, Object>>> jsonList = new HashMap<String, List<Map<String,Object>>>();
 		jsonList.put("analysis_result", list1);
-		jsonList.put("analysis_store_peup", list2);
+		jsonList.put("analysis_store_pl", list2);
+		jsonList.put("analysis_result_point", list3);
+		jsonList.put("analysis_density", list4);
 		
 
 		return jsonList; 
